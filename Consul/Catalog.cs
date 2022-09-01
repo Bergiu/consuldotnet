@@ -31,7 +31,7 @@ namespace Consul
         [JsonProperty(PropertyName = "Node")]
         public string Name { get; set; }
         public string Address { get; set; }
-        public Dictionary<string, string> TaggedAddresses { get; set; }
+        public IDictionary<string, string> TaggedAddresses { get; set; }
     }
 
     public class ServiceTaggedAddress
@@ -50,7 +50,7 @@ namespace Consul
         public string ServiceAddress { get; set; }
         public string[] ServiceTags { get; set; }
         public int ServicePort { get; set; }
-        public Dictionary<string, ServiceTaggedAddress> ServiceTaggedAddresses { get; set; }
+        public IDictionary<string, ServiceTaggedAddress> ServiceTaggedAddresses { get; set; }
         public bool ServiceEnableTagOverride { get; set; }
         public IDictionary<string, string> ServiceMeta { get; set; }
     }
@@ -58,7 +58,7 @@ namespace Consul
     public class CatalogNode
     {
         public Node Node { get; set; }
-        public Dictionary<string, AgentService> Services { get; set; }
+        public IDictionary<string, AgentService> Services { get; set; }
 
         public CatalogNode()
         {
