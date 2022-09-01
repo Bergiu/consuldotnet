@@ -149,7 +149,7 @@ namespace Consul
         public string Name { get; set; }
         public string Addr { get; set; }
         public ushort Port { get; set; }
-        public Dictionary<string, string> Tags { get; set; }
+        public IDictionary<string, string> Tags { get; set; }
         public int Status { get; set; }
         public byte ProtocolMin { get; set; }
         public byte ProtocolMax { get; set; }
@@ -252,7 +252,7 @@ namespace Consul
         public string HTTP { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public Dictionary<string, List<string>> Header { get; set; }
+        public IDictionary<string, List<string>> Header { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string Method { get; set; }
@@ -325,9 +325,9 @@ namespace Consul
         /// Self is used to query the agent we are speaking to for information about itself
         /// </summary>
         /// <returns>A somewhat dynamic object representing the various data elements in Self</returns>
-        public Task<QueryResult<Dictionary<string, Dictionary<string, dynamic>>>> Self(CancellationToken ct = default(CancellationToken))
+        public Task<QueryResult<Dictionary<string, IDictionary<string, dynamic>>>> Self(CancellationToken ct = default(CancellationToken))
         {
-            return _client.Get<Dictionary<string, Dictionary<string, dynamic>>>("/v1/agent/self").Execute(ct);
+            return _client.Get<Dictionary<string, IDictionary<string, dynamic>>>("/v1/agent/self").Execute(ct);
         }
 
         /// <summary>

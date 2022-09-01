@@ -32,7 +32,7 @@ namespace Consul
         internal const double Minute = 60 * Second;
         internal const double Hour = 60 * Minute;
 
-        internal static readonly Dictionary<string, double> UnitMap = new Dictionary<string, double>()
+        internal static readonly IDictionary<string, double> UnitMap = new Dictionary<string, double>()
         {
             {"ns", Nanosecond},
             {"us", Microsecond},

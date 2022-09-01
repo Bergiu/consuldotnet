@@ -34,7 +34,7 @@ namespace Consul
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string Description { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public Dictionary<string, string> Config { get; set; }
+        public IDictionary<string, string> Config { get; set; }
 
         public bool ShouldSerializeCreateIndex()
         {
@@ -51,12 +51,12 @@ namespace Consul
         {
         }
 
-        public AuthMethodEntry(string name, string type, Dictionary<string, string> config)
+        public AuthMethodEntry(string name, string type, IDictionary<string, string> config)
             : this(name, type, string.Empty, config)
         {
         }
 
-        public AuthMethodEntry(string name, string type, string description, Dictionary<string, string> config)
+        public AuthMethodEntry(string name, string type, string description, IDictionary<string, string> config)
         {
             Name = name;
             Type = type;

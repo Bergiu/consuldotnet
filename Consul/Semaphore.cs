@@ -220,7 +220,7 @@ namespace Consul
             }
 
             [JsonProperty]
-            internal Dictionary<string, bool> Holders { get; set; }
+            internal IDictionary<string, bool> Holders { get; set; }
 
             internal SemaphoreLock()
             {

@@ -51,7 +51,7 @@ namespace Consul
     {
         internal ConsulClient Client { get; set; }
         internal HttpMethod Method { get; set; }
-        internal Dictionary<string, string> Params { get; set; }
+        internal IDictionary<string, string> Params { get; set; }
         internal Stream ResponseStream { get; set; }
         internal string Endpoint { get; set; }
 
@@ -77,7 +77,7 @@ namespace Consul
         protected abstract void ApplyOptions(ConsulClientConfiguration clientConfig);
         protected abstract void ApplyHeaders(HttpRequestMessage message, ConsulClientConfiguration clientConfig);
 
-        protected Uri BuildConsulUri(string url, Dictionary<string, string> p)
+        protected Uri BuildConsulUri(string url, IDictionary<string, string> p)
         {
             var builder = new UriBuilder(Client.Config.Address);
             builder.Path = url;
